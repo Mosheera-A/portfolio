@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Triage – Project Details</title>
+  <link rel="stylesheet" href="portf.css" />
+  <style>
+    /* Page-specific tweaks (inherits from portf.css) */
+    .container { max-width: 920px; margin: 0 auto; }
+    .hero {
+      background: #fff;
+      border: 1px solid #0a2a66;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #0a2a66;
+      background: #0a2a66;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn.secondary {
+      background: #fff;
+      color: #0a2a66;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mosheera Ahmed</h1>
+    <p><strong>Canada | +1 (613) 415-7760 |
+      <a href="mailto:ahme0616@algonquinlive.com"><strong>ahme0616@algonquinlive.com</strong></a>
+    </strong></p>
+
+    <nav>
+      <ul>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#hospital-triage">Hospital Triage</a></li>
+        <li><a href="index.html#yatzy-game">Yatzy Game</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li style="float:right"><a href="index.html#hospital-triage">← Back to Portfolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Overview -->
+    <section class="hero">
+      <h2>Hospital Triage – Technical Overview</h2>
+      <p>
+        This project is a web-based hospital triage system that supports emergency
+        check-in for patients and an administrative dashboard for staff. It combines a
+        relational MySQL database with a structured triage workflow so that patients are
+        registered with priority level, symptoms, and demographic details, then placed
+        into a queue with an estimated wait time.
+      </p>
+      <p>
+        The application separates concerns between data storage (MySQL schema for
+        <em>priority</em>, <em>patients</em>, and <em>rooms</em>), business logic (priority rules
+        and wait-time calculations), and presentation (HTML/CSS forms and tables). This
+        makes it easier to extend the system with additional reports or integrations later.
+      </p>
+
+      <div class="actions">
+        <a href="index.html#hospital-triage" class="btn secondary">← Back to Portfolio</a>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section>
+      <h2>Highlights</h2>
+      <div class="grid">
+        <div>
+          <h3>Architecture</h3>
+          <ul>
+            <li><strong>Relational design:</strong> Normalized MySQL tables for priorities, patients, and rooms with foreign-key relationships.</li>
+            <li><strong>Separation of concerns:</strong> Check-in form, queue display, and admin dashboard are organized into clear, focused views.</li>
+            <li><strong>Extensibility:</strong> Designed so additional metrics (e.g., average wait time per priority) or new reports can be added with minimal changes.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Workflow & Features</h3>
+          <ul>
+            <li><strong>Patient check-in:</strong> Emergency staff register patients with name, gender, symptoms, priority level, and arrival time.</li>
+            <li><strong>Queue management:</strong> System tracks each patient’s status and approximate wait based on priority rules.</li>
+            <li><strong>Admin dashboard:</strong> Admin view to monitor the queue, assign rooms, and update patient status as they are seen.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Database / Schema -->
+    <section>
+      <h2>Data Model</h2>
+      <ul>
+        <li><strong>priority:</strong> Stores triage levels (e.g., urgent, non-urgent, critical) and an approximate wait-time guideline for each level.</li>
+        <li><strong>patients:</strong> Captures patient details such as name, gender, symptoms, priority id, arrival time, and current status.</li>
+        <li><strong>rooms:</strong> Represents treatment rooms with current status (available/occupied) and links to assigned patients when applicable.</li>
+      </ul>
+    </section>
+
+    <!-- Role / Learning -->
+    <section>
+      <h2>My Role & Takeaways</h2>
+      <ul>
+        <li>Implemented the front-end forms and tables for patient check-in and queue visualization.</li>
+        <li>Helped design the MySQL schema and wrote queries to insert, update, and retrieve triage data.</li>
+        <li>Strengthened understanding of how database-backed web apps can support real-world workflows and reporting.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

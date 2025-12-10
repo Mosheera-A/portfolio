@@ -28,6 +28,31 @@ header p {
   color: #0a2a66; /* navy for contact info */
   font-weight: bold;
 }
+/* --- Header logo (top-right) --- */
+header { 
+  position: relative; 
+  padding-right: clamp(90px, 12vw, 140px);  
+}       
+      
+.header-logo {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: clamp(64px, 10vw, 120px);
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 601px) {
+  header { padding-right: 80px; }        
+}
+
+/* smaller logo on phones */
+@media (max-width: 600px) {
+  .header-logo { height: 36px; }
+}
+
 
 /* Navigation */
 nav ul {

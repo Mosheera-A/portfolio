@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yatzy Project – Details</title>
+  <link rel="stylesheet" href="portf.css" />
+  <style>
+    /* Page-specific tweaks (kept minimal, inherits from portf.css) */
+    .container { max-width: 920px; margin: 0 auto; }
+    .hero { background: #fff; border: 1px solid #0a2a66; border-radius: 8px; padding: 16px; }
+    .actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 10px 14px; border-radius: 6px;
+      border: 1px solid #0a2a66; background: #0a2a66; color: #fff;
+      font-weight: bold; text-decoration: none; cursor: pointer;
+    }
+    .btn.secondary { background: #fff; color: #0a2a66; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+    code { background: #f2f2f2; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mosheera Ahmed</h1>
+    <p><strong>Canada | +1 (613) 415-7760 | 
+      <a href="mailto:ahme0616@algonquinlive.com"><strong>ahme0616@algonquinlive.com</strong></a>
+    </strong></p>
+
+    <nav>
+      <ul>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#yatzy-game">Yatzy Game</a></li>
+        <li style="float:right"><a href="index.html#yatzy-game">← Back to Portfolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Yatzy – Technical Overview</h2>
+      <p>
+        This project is a browser-based implementation of the classic Yatzy dice game.
+        It uses semantic HTML, modular JavaScript, and lightweight CSS to provide a
+        clean UI and a clear separation between presentation and game logic.
+        The code is structured with distinct responsibilities:
+        a <code>Dice</code> module for rolling and holding dice, a <code>YatzyEngine</code>
+        module for scoring and category validation, and a <code>YatzyGame</code> controller
+        that coordinates players, rounds, and UI updates. The design enables easy
+        extension—for example, adding a client-server mode (via Node/Express) for
+        multiplayer or persistence in later labs.
+      </p>
+
+      <div class="actions">
+        <a href="index.html#yatzy-game" class="btn secondary">← Back to Portfolio</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Highlights</h2>
+      <div class="grid">
+        <div>
+          <h3>Architecture</h3>
+          <ul>
+            <li><strong>Modular JS:</strong> <code>Dice</code>, <code>YatzyEngine</code>, and <code>YatzyGame</code> are split into focused modules with clean interfaces.</li>
+            <li><strong>UI vs Logic:</strong> DOM/UI updates are kept separate from scoring/validation logic to simplify testing and future refactors.</li>
+            <li><strong>Extensibility:</strong> Designed to add Express/REST endpoints later for saving scores and enabling remote play.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Game Mechanics</h3>
+          <ul>
+            <li><strong>Dice workflow:</strong> Roll up to three times per round, selectively holding dice between rolls.</li>
+            <li><strong>Scoring:</strong> Categories include Ones–Sixes, Three/Four of a Kind, Full House, Small/Large Straight, Chance, and Yatzy, with an Upper Section bonus rule.</li>
+            <li><strong>State management:</strong> Tracks players, current turn, round number, and per-category selections in a score table.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Key Files</h2>
+      <ul>
+        <li><code>index.html</code> – Main portfolio and entry point to this project.</li>
+        <li><code>portf.css</code> – Shared site styling so this page visually matches the portfolio.</li>
+        <li><code>yatz.js</code> – Yatzy modules (Dice, YatzyEngine, YatzyGame) and UI hookup code.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Sample API (Pseudo-usage)</h2>
+      <pre><code>// Import modules
+import {{ Dice }} from './dice.js';
+import {{ YatzyEngine }} from './yatzyEngine.js';
+import {{ YatzyGame }} from './yatz.js';
+
+const game = new YatzyGame(['Player 1']);
+game.startNewGame();
+
+// Roll and hold dice
+game.dice.roll();
+game.dice.hold([0, 2]); // example: hold die #1 and #3
+
+// Score a category
+const score = game.engine.calculateScore('Full House', game.dice.values);
+game.engine.commitScore('Full House', score);</code></pre>
+      <p><em>Note:</em> File/module names can vary depending on how you organized the lab files.</p>
+    </section>
+  </main>
+</body>
+</html>
